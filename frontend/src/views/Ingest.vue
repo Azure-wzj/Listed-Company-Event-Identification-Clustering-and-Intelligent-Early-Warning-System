@@ -41,7 +41,22 @@
         </el-col>
       </el-row>
       <el-alert v-if="status.error" type="error" :title="String(status.error)" :closable="false" class="err" />
-      <el-alert v-if="nlStatus.hint" type="warning" :title="String(nlStatus.hint)" :closable="false" class="err" />
+      <el-alert
+        v-if="nlStatus.hint && status.ready && !status.error"
+        type="info"
+        title="当前使用轻量归组模式"
+        description="语义索引尚未配置，事件接入会使用 TF-IDF 检索。两种归组方式的结果可能不同。"
+        :closable="false"
+        class="err"
+      />
+      <el-alert
+        v-else-if="nlStatus.hint && !status.building"
+        type="warning"
+        title="语义索引尚未配置，轻量索引暂不可用"
+        description="请检查接入索引状态，索引就绪后即可使用轻量归组。"
+        :closable="false"
+        class="err"
+      />
     </el-card>
 
     <el-card shadow="never">
