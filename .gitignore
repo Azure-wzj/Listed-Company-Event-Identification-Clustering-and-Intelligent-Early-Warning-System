@@ -1,0 +1,29 @@
+# Local secrets and environments
+.env
+.env.*
+!.env.example
+config.json
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local data, model weights, and generated results
+data/
+cleaned_data/
+*.xlsx
+*.xls
+*.npy
+*.npz
+*.model
+
+# Generated files
+frontend/node_modules/
+frontend/dist/
+frontend/*.timestamp-*.mjs
+*.log
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
